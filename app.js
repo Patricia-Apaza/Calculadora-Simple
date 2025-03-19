@@ -5,7 +5,7 @@ let currentOperation = null;
 let firstOperand = null;
 let shouldResetDisplay = false;
 
-document.addEventListener("keydown", handleKeyboardInput);  // Agregamos un escuchador para el teclado
+document.addEventListener("keydown", handleKeyboardInput);  // Agregamos funcionalidad el teclado
 
 function appendNumber(num) {
   if (shouldResetDisplay) {
@@ -40,10 +40,10 @@ function calculate() {
     let secondOperand = parseFloat(currentInput);
   
     try {
-      // Verificamos que la entrada sea un número válido
-      if (isNaN(firstOperand) || isNaN(secondOperand)) {
-        throw new Error("Entrada no válida. Por favor ingrese números válidos.");
-      }
+    //   // Se verifica que la entrada sea un número válido
+    //   if (isNaN(firstOperand) || isNaN(secondOperand)) {
+    //     throw new Error("Entrada no válida. Por favor ingrese números válidos.");
+    //   }
   
       let result;
       switch (currentOperation) {

@@ -11,6 +11,11 @@
     <input type="text" class="display-history" id="display-history" disabled>
     <input type="text" class="display" id="display" disabled>
     <div class="buttons">
+      <button onclick="deleteLast()">DEL</button>
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="calculateSquareRoot()">√</button>
+      <button onclick="calculatePower()">xʸ</button>
+      
       <button onclick="appendNumber('7')">7</button>
       <button onclick="appendNumber('8')">8</button>
       <button onclick="appendNumber('9')">9</button>
@@ -28,7 +33,7 @@
       
       <button onclick="appendDecimal()">.</button>
       <button onclick="appendNumber('0')">0</button>
-      <button onclick="clearDisplay()">C</button>
+      <button onclick="calculatePercentage()">%</button>
       <button onclick="setOperation('/')">÷</button>
       
       <button class="equal" style="grid-column: span 4;" onclick="calculate()">=</button>

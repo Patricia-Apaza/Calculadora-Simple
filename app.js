@@ -49,7 +49,7 @@ function calculate() {
         if (secondOperand === 0) throw new Error("No se puede dividir por cero.");
         result = firstOperand / secondOperand; 
         break;
-      case 'pow':  // Aquí manejamos la potencia
+      case 'pow':
         result = Math.pow(firstOperand, secondOperand);
         break;
       default: 
@@ -69,7 +69,7 @@ function calculate() {
 }
 
 function calculatePower() {
-  setOperation('pow');  // Usamos 'pow' para que `calculate()` lo maneje correctamente
+  setOperation('pow');
 }
 
 function updateDisplay() {
@@ -83,14 +83,9 @@ function updateDisplayHistory() {
 function calculateSquareRoot() {
   let value = parseFloat(currentInput);
 
-  if (value < 0) {
-    alert("No se puede calcular la raíz cuadrada de un número negativo.");
-    return;
-  }
-
   currentInput = Math.sqrt(value).toString();
-  firstOperand = parseFloat(currentInput); // Guarda el resultado para futuras operaciones
-  currentOperation = null; // Resetea la operación
+  firstOperand = parseFloat(currentInput);
+  currentOperation = null;
   shouldResetDisplay = true;
   displayHistory.value = `√(${value}) =`;
   updateDisplay();
@@ -99,13 +94,11 @@ function calculateSquareRoot() {
 function calculatePercentage() {
   let value = parseFloat(currentInput);
 
-  if (isNaN(value)) return; // Evita errores si el input no es un número
+  if (isNaN(value)) return;
 
   if (firstOperand !== null && currentOperation) {
-    // Si hay una operación en curso, calcula el porcentaje relativo
     value = (firstOperand * value) / 100;
   } else {
-    // Si no hay operación en curso, convierte el número en su forma porcentual (dividido entre 100)
     value = value / 100;
   }
 
@@ -124,10 +117,10 @@ function clearDisplay() {
 }
 
 function deleteLast() {
-  if (shouldResetDisplay) return; // Si hay que resetear la pantalla, no hacemos nada
-  currentInput = currentInput.slice(0, -1); // Elimina el último carácter
+  if (shouldResetDisplay) return;
+  currentInput = currentInput.slice(0, -1);
   if (currentInput === "") {
-    currentInput = "0"; // Evita que quede vacío
+    currentInput = "0";
   }
   updateDisplay();
 }
@@ -143,7 +136,7 @@ function handleKeyboardInput(event) {
   } else if (key === "+" || key === "-" || key === "*" || key === "/") {
     setOperation(key);
   } else if (key === "^") {  
-    calculatePower();  // Permite usar `^` en el teclado para la potencia
+    calculatePower();
   } else if (key === "Enter" || key === "=") {
     calculate();
   } else if (key === "Backspace") {
